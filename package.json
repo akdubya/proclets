@@ -1,0 +1,10 @@
+{
+  "name"          : "proclets",
+  "version"       : "0.0.1",
+  "description"   : "Lightweight processing pipelines for node.js",
+  "author"        : "Aleksander Williams",
+  "contributors"  : [],
+  "url"           : "http://github.com/akdubya/proclets",
+  "keywords"      : ["stream", "process", "pipeline"],
+  "main"          : "./index"
+}
