@@ -11,6 +11,21 @@ suite.test("open input", function(assert) {
 
   p1.stdout.on('data', function(data) { buf += data });
   p1.on('exit', assert.trap(function() {
+    assert.ok(p1.stdout.stats === undefined);
+    assert.equal(buf, "foo\nbar\nbaz");
+    assert.pass();
+  }));
+
+  p1.spawn();
+});
+
+suite.test("open input with stat", function(assert) {
+  var p1 = p.inp('input.txt', {stat: true});
+  var buf = '';
+
+  p1.stdout.on('data', function(data) { buf += data });
+  p1.on('exit', assert.trap(function() {
+    assert.ok(p1.stdout.stats !== undefined);
     assert.equal(buf, "foo\nbar\nbaz");
     assert.pass();
   }));
